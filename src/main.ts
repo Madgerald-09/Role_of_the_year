@@ -1,17 +1,50 @@
 import imageOne from "../images/Image1.jpg";
 import logo from "../images/logo.jpg";
+import nomineePoster1 from "../images/1stnominee.jpg";
+import nomineePoster2 from "../images/2ndnominee.jpg";
+import nomineePoster3 from "../images/3rdnominee.jpg";
+import nomineePoster4 from "../images/4thnominee.jpg";
+import nomineePoster5 from "../images/5thnominee.jpg";
+import nomineePoster6 from "../images/6thnominee.jpg";
+import nomineePoster7 from "../images/7thnominee.jpg";
+import nomineePoster8 from "../images/8thnominee.jpg";
 import "./style.css";
 
 type Nominee = {
   anchor: string;
-  category: string;
+  name: string;
+  poster: string;
 };
 
 const nominees: Nominee[] = [
-  { anchor: "nominee-2", category: "Steady Light" },
-  { anchor: "nominee-3", category: "Cutest" },
-  { anchor: "nominee-4", category: "Eljay" },
-  { anchor: "nominee-5", category: "Fashion Creator" },
+  {
+    anchor: "nominee-1",
+    name: "Nwokolo Chidera David",
+    poster: nomineePoster1,
+  },
+  { anchor: "nominee-2", name: "Treasure Amarachi", poster: nomineePoster2 },
+  {
+    anchor: "nominee-3",
+    name: "Prince Chibueze Onyekachi",
+    poster: nomineePoster3,
+  },
+  {
+    anchor: "nominee-4",
+    name: "Emmanuel Peace Kelechi",
+    poster: nomineePoster4,
+  },
+  {
+    anchor: "nominee-5",
+    name: "Precious Chinaza Onyema",
+    poster: nomineePoster5,
+  },
+  {
+    anchor: "nominee-6",
+    name: "Emmanuel Michael Chigozirim",
+    poster: nomineePoster6,
+  },
+  { anchor: "nominee-7", name: "Enioluwa", poster: nomineePoster7 },
+  { anchor: "nominee-8", name: "Amaku Michael", poster: nomineePoster8 },
 ];
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -44,11 +77,11 @@ app.innerHTML = `
         <p class="welcome-line">Welcome to</p>
         <h1 id="cover-title">Role of the Year<br /><span>Award</span></h1>
         <p class="cover-year">2026</p>
-        <a class="nominee-cta" href="#nominee-2">
+        <a class="nominee-cta" href="#nominee-1">
           <span class="cta-copy">Click to check out our<strong>Nominees</strong></span>
           <span class="cta-arrow" aria-hidden="true">↓</span>
         </a>
-        <a class="cover-photo" href="#nominee-2" aria-label="Scroll to the nominees">
+        <a class="cover-photo" href="#nominee-1" aria-label="Scroll to the nominees">
           <img src="${imageOne}" alt="Featured image for the Role of the Year Awards 2026" />
         </a>
       </div>
@@ -61,13 +94,12 @@ app.innerHTML = `
       <section class="scroll-screen page-shell nominee-screen" id="${nominee.anchor}" aria-labelledby="nominee-title-${index}">
         ${header()}
         <div class="individual-nominee" style="--nominee-index: ${index}">
-          <div class="individual-portrait" aria-hidden="true">
-            <span class="portrait-initial">R</span>
-            <span class="portrait-caption">Nominee</span>
+          <div class="individual-portrait">
+            <img class="nominee-poster" src="${nominee.poster}" alt="Nominee poster for ${nominee.name}" />
           </div>
           <div class="individual-details">
-            <p class="eyebrow">Category</p>
-            <h1 id="nominee-title-${index}">${nominee.category}</h1>
+            <p class="eyebrow">Nominee</p>
+            <h1 id="nominee-title-${index}">${nominee.name}</h1>
           </div>
         </div>
         ${footer()}
@@ -82,7 +114,7 @@ app.innerHTML = `
       { target: "welcome", label: "Welcome" },
       ...nominees.map((nominee) => ({
         target: nominee.anchor,
-        label: `${nominee.category} nominee`,
+        label: `${nominee.name} nominee`,
       })),
     ]
       .map(
