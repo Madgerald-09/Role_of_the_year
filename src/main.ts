@@ -8,6 +8,7 @@ import nomineePoster5 from "../images/5thnominee.jpg";
 import nomineePoster6 from "../images/6thnominee.jpg";
 import nomineePoster7 from "../images/7thnominee.jpg";
 import nomineePoster8 from "../images/8thnominee.jpg";
+import finalVideoSource from "../videos/vid1.mp4";
 import "./style.css";
 
 type Nominee = {
@@ -107,6 +108,24 @@ app.innerHTML = `
     `,
       )
       .join("")}
+
+    <section class="scroll-screen page-shell nominee-screen video-screen" id="final-video" aria-labelledby="final-video-title">
+      ${header()}
+      <div class="final-video-content">
+        <p class="eyebrow">Role of the Year Awards 2026</p>
+        <h1 id="final-video-title">The Final Moment</h1>
+        <video
+          class="award-video"
+          src="${finalVideoSource}"
+          aria-label="Role of the Year Awards 2026 video"
+          muted
+          playsinline
+          controls
+          preload="auto"
+        ></video>
+      </div>
+      ${footer()}
+    </section>
   </main>
 
   <nav class="section-progress" aria-label="Section navigation">
@@ -116,6 +135,7 @@ app.innerHTML = `
         target: nominee.anchor,
         label: `${nominee.name} nominee`,
       })),
+      { target: "final-video", label: "Final video" },
     ]
       .map(
         (section, index) => `
@@ -132,6 +152,22 @@ const sections = [...document.querySelectorAll<HTMLElement>(".scroll-screen")];
 const sectionLinks = [
   ...document.querySelectorAll<HTMLAnchorElement>(".section-progress a"),
 ];
+const videoSection = document.querySelector<HTMLElement>("#final-video");
+const videoPlayer = document.querySelector<HTMLVideoElement>(".award-video");
+
+if (videoSection && videoPlayer && "IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        void videoPlayer.play().catch(() => undefined);
+      } else {
+        videoPlayer.pause();
+      }
+    },
+    { threshold: 0.5 },
+  );
+  videoObserver.observe(videoSection);
+}
 
 const updateActiveSection = () => {
   const viewportCenter = window.innerHeight / 2;
