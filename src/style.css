@@ -871,32 +871,45 @@ html {
   pointer-events: none;
 }
 
+.video-screen {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+}
+
 .final-video-content {
   display: grid;
   flex: 1;
   align-content: center;
   justify-items: center;
-  gap: 14px;
-  padding: 28px 0;
+  gap: 0;
+  padding: 0;
   text-align: center;
 }
 
 .final-video-content h1 {
+  position: absolute;
+  inset: 18px auto auto 18px;
+  z-index: 2;
   margin: 0;
   color: var(--paper);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 42px;
+  font-size: 30px;
   font-weight: 500;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.56);
 }
 
 .award-video {
   display: block;
-  width: min(100%, 960px);
-  max-height: 62svh;
-  aspect-ratio: 16 / 9;
-  border: 1px solid rgba(212, 185, 150, 0.45);
-  background: #050505;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  aspect-ratio: auto;
+  border: none;
+  background: #000;
   object-fit: contain;
+  box-shadow: none;
 }
 
 .individual-nominee {
@@ -970,16 +983,19 @@ html {
   }
 
   .final-video-content {
-    gap: 10px;
-    padding: 20px 0 36px;
+    gap: 0;
+    padding: 0;
   }
 
   .final-video-content h1 {
-    font-size: 34px;
+    top: 12px;
+    left: 12px;
+    font-size: 22px;
   }
 
   .award-video {
-    max-height: 56svh;
+    width: 100vw;
+    height: 100vh;
   }
 
   .individual-portrait {

@@ -8,6 +8,8 @@ import nomineePoster5 from "../images/5thnominee.jpg";
 import nomineePoster6 from "../images/6thnominee.jpg";
 import nomineePoster7 from "../images/7thnominee.jpg";
 import nomineePoster8 from "../images/8thnominee.jpg";
+import nomineePoster9 from "../images/9thnominee.jpg";
+import nomineePoster10 from "../images/10thnominee.jpg";
 import finalVideoSource from "../videos/vid1.mp4";
 import "./style.css";
 
@@ -46,6 +48,8 @@ const nominees: Nominee[] = [
   },
   { anchor: "nominee-7", name: "Enioluwa", poster: nomineePoster7 },
   { anchor: "nominee-8", name: "Amaku Michael", poster: nomineePoster8 },
+  { anchor: "nominee-9", name: "Joseph", poster: nomineePoster9 },
+  { anchor: "nominee-10", name: "Elijah Goodswill", poster: nomineePoster10 },
 ];
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -109,7 +113,7 @@ app.innerHTML = `
       )
       .join("")}
 
-    <section class="scroll-screen page-shell nominee-screen video-screen" id="final-video" aria-labelledby="final-video-title">
+    <section class="scroll-screen nominee-screen video-screen" id="final-video" aria-labelledby="final-video-title">
       ${header()}
       <div class="final-video-content">
         <p class="eyebrow">Role of the Year Awards 2026</p>
