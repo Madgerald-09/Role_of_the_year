@@ -122,7 +122,6 @@ app.innerHTML = `
           class="award-video"
           src="${finalVideoSource}"
           aria-label="Role of the Year Awards 2026 video"
-          muted
           playsinline
           controls
           preload="auto"
@@ -163,6 +162,7 @@ if (videoSection && videoPlayer && "IntersectionObserver" in window) {
   const videoObserver = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
+        videoPlayer.muted = false;
         void videoPlayer.play().catch(() => undefined);
       } else {
         videoPlayer.pause();
