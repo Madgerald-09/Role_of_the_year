@@ -10,6 +10,12 @@ import nomineePoster7 from "../images/7thnominee.jpg";
 import nomineePoster8 from "../images/8thnominee.jpg";
 import nomineePoster9 from "../images/9thnominee.jpg";
 import nomineePoster10 from "../images/10thnominee.jpg";
+import advert1Image from "../images/1stadvert.jpg";
+import advert2Image from "../images/2ndadvert.png";
+import advert3Image from "../images/3ndadvert.jpg";
+import advert4Image from "../images/4thadvert.jpg";
+import advert5Image from "../images/5thadvert.jpg";
+import advert6Video from "../videos/6thadvert.mp4";
 import finalVideoSource from "../videos/vid1.mp4";
 import "./style.css";
 
@@ -50,6 +56,132 @@ const nominees: Nominee[] = [
   { anchor: "nominee-8", name: "Amaku Michael", poster: nomineePoster8 },
   { anchor: "nominee-9", name: "Joseph", poster: nomineePoster9 },
   { anchor: "nominee-10", name: "Elijah Goodswill", poster: nomineePoster10 },
+];
+
+type Advert = {
+  anchor: string;
+  title: string;
+  subtitle: string;
+  media: string;
+  mediaType: "image" | "video";
+  points: string[];
+  links: { label: string; href: string; type: "website" | "whatsapp" }[];
+};
+
+const adverts: Advert[] = [
+  {
+    anchor: "advert-1",
+    title: "Brightz Concept",
+    subtitle: "Graphic Design • Video Shooting • Branding • Web Development",
+    media: advert1Image,
+    mediaType: "image",
+    points: [
+      "We create premium graphics, video shoots, editing, branding, and digital promotions for businesses.",
+      "Your creative partner for visibility, growth and memorable campaigns.",
+    ],
+    links: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/+2348073780742",
+        type: "whatsapp",
+      },
+      {
+        label: "Website",
+        href: "https://brightzconcept.simdif.com/",
+        type: "website",
+      },
+    ],
+  },
+  {
+    anchor: "advert-2",
+    title: "Gerald",
+    subtitle: "Web Developer • Tech Enthusiast • Freelancer",
+    media: advert2Image,
+    mediaType: "image",
+    points: [
+      "Modern websites and responsive digital solutions built to grow your business online.",
+      "From design to deployment, I help turn ideas into working tech experiences.",
+    ],
+    links: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/+2348022720944",
+        type: "whatsapp",
+      },
+      {
+        label: "Website",
+        href: "https://geraldportfolio-one.vercel.app/",
+        type: "website",
+      },
+    ],
+  },
+  {
+    anchor: "advert-3",
+    title: "Ada Daddy Interior Design",
+    subtitle: "Bedding & Curtains Specialist",
+    media: advert3Image,
+    mediaType: "image",
+    points: [
+      "We design and supply duvet sets, duvet covers, bedsheets, pillows and different types of curtains.",
+      "Chisco Plaza, School Road by Mosque, Aba, Abia State.",
+    ],
+    links: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/+2349134686313",
+        type: "whatsapp",
+      },
+    ],
+  },
+  {
+    anchor: "advert-4",
+    title: "Deals on Men Wear",
+    subtitle: "Senator • Suit • Trouser • Ise Agu • Shirt • Jalabia • Etibo",
+    media: advert4Image,
+    mediaType: "image",
+    points: [
+      "Premium men’s fashion and tailoring essentials for quality, comfort and style.",
+      "Custom-made and ready-to-wear pieces for everyday elegance.",
+    ],
+    links: [],
+  },
+  {
+    anchor: "advert-5",
+    title: "Clinton's Couture Tailor",
+    subtitle:
+      "Fabric Materials • Senator • Suit • Crepes • Ise Agu • Jalabia • Etibo",
+    media: advert5Image,
+    mediaType: "image",
+    points: [
+      "Dealer in a wide range of fabric materials including senator, suit, thick and light crepe, ise agu, mecado, jalabia, dulchese and etibo.",
+      "We deliver worldwide anytime, anywhere.",
+    ],
+    links: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/message/B6FLKTSJTPDEM1",
+        type: "whatsapp",
+      },
+    ],
+  },
+  {
+    anchor: "advert-6",
+    title: "Dominic Fabrics",
+    subtitle: "Quality textile supply and fabric solutions",
+    media: advert6Video,
+    mediaType: "video",
+    points: [
+      "Fashion and fabric materials for everyday style, bulk supply and reliable customer service.",
+      "Trusted textile products delivered with care.",
+    ],
+    links: [
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/+2347042885571",
+        type: "whatsapp",
+      },
+    ],
+  },
 ];
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -129,6 +261,65 @@ app.innerHTML = `
       </div>
       ${footer()}
     </section>
+
+    <section class="scroll-screen page-shell nominee-screen voting-soon-screen" id="voting-soon" aria-labelledby="voting-soon-title">
+      ${header()}
+      <div class="voting-soon-content">
+        <p class="eyebrow">Role of the Year Awards 2026</p>
+        <h1 id="voting-soon-title">Voting Starts Soon</h1>
+        <p class="voting-soon-copy">Stay tuned for the official launch of voting.</p>
+      </div>
+      ${footer()}
+    </section>
+
+    <section class="scroll-screen page-shell advert-intro-screen" id="advert-block" aria-labelledby="advert-block-title">
+      ${header()}
+      <div class="advert-intro-content">
+        <h2 id="advert-block-title">Advertisement Pages</h2>
+      </div>
+      ${footer()}
+    </section>
+
+    ${adverts
+      .map(
+        (advert, index) => `
+      <section class="scroll-screen page-shell advert-screen" id="${advert.anchor}" aria-labelledby="advert-title-${index}">
+        ${header()}
+        <div class="advert-content">
+          <div class="advert-card">
+            <div class="advert-media">
+              ${
+                advert.mediaType === "video"
+                  ? `<video class="advert-video" src="${advert.media}" controls playsinline preload="metadata"></video>`
+                  : `<img class="advert-image" src="${advert.media}" alt="${advert.title}" />`
+              }
+            </div>
+            <div class="advert-copy">
+              <p class="eyebrow">Advert ${index + 1}</p>
+              <h2 id="advert-title-${index}">${advert.title}</h2>
+              <p class="advert-subtitle">${advert.subtitle}</p>
+              <ul class="advert-points">
+                ${advert.points.map((point) => `<li>${point}</li>`).join("")}
+              </ul>
+              <div class="advert-links">
+                ${advert.links
+                  .map(
+                    (link) => `
+                    <a href="${link.href}" target="_blank" rel="noreferrer noopener">
+                      ${link.label}
+                    </a>
+                  `,
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </div>
+        </div>
+        ${footer()}
+      </section>
+    `,
+      )
+      .join("")}
   </main>
 
   <nav class="section-progress" aria-label="Section navigation">
@@ -139,6 +330,12 @@ app.innerHTML = `
         label: `${nominee.name} nominee`,
       })),
       { target: "final-video", label: "Final video" },
+      { target: "voting-soon", label: "Voting starts soon" },
+      { target: "advert-block", label: "Advertisement pages" },
+      ...adverts.map((advert) => ({
+        target: advert.anchor,
+        label: `${advert.title} advert`,
+      })),
     ]
       .map(
         (section, index) => `

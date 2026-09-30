@@ -877,6 +877,235 @@ html {
   margin: 0;
 }
 
+.voting-soon-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(93, 76, 58, 0.22),
+    rgba(9, 9, 8, 0.96) 58%
+  );
+}
+
+.voting-soon-content {
+  display: grid;
+  flex: 1;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.voting-soon-content h1 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(42px, 6vw, 88px);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.voting-soon-copy {
+  margin: 0;
+  color: rgba(244, 240, 232, 0.7);
+  font-size: clamp(14px, 1.8vw, 22px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.advert-intro-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 185, 150, 0.12),
+    rgba(9, 9, 8, 0.98) 60%
+  );
+}
+
+.advert-intro-content {
+  display: grid;
+  flex: 1;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.advert-intro-content h2 {
+  margin: 8px 0 0;
+  color: var(--paper);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 5vw, 70px);
+  font-weight: 500;
+}
+
+.advert-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.advert-content {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  padding: 28px 0 36px;
+}
+
+.advert-card {
+  display: grid;
+  width: min(100%, 1180px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 28px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid rgba(212, 185, 150, 0.3);
+  background: rgba(20, 15, 10, 0.34);
+}
+
+.advert-media {
+  display: grid;
+  overflow: hidden;
+  background: #050505;
+  border: 1px solid rgba(212, 185, 150, 0.4);
+}
+
+.advert-image,
+.advert-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 68svh;
+  object-fit: contain;
+  background: #050505;
+}
+
+.advert-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.advert-copy h2 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(32px, 3vw, 52px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+@media (max-width: 900px) {
+  .advert-content {
+    padding: 18px 0 26px;
+  }
+
+  .advert-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: min(100%, 680px);
+    padding: 18px;
+  }
+
+  .advert-media {
+    order: -1;
+  }
+
+  .advert-image,
+  .advert-video {
+    max-height: 42svh;
+  }
+
+  .advert-copy h2 {
+    font-size: clamp(28px, 6vw, 42px);
+  }
+
+  .advert-subtitle {
+    font-size: 14px;
+  }
+
+  .advert-points {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .advert-links {
+    gap: 8px;
+  }
+
+  .advert-links a {
+    flex: 1 1 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .advert-content {
+    padding: 12px 0 20px;
+  }
+
+  .advert-card {
+    padding: 14px;
+  }
+
+  .advert-copy {
+    gap: 8px;
+  }
+
+  .advert-subtitle {
+    letter-spacing: 0.02em;
+  }
+
+  .advert-points {
+    padding-left: 16px;
+  }
+
+  .advert-links a {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+.advert-subtitle {
+  margin: 0;
+  color: var(--gold);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.advert-points {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(244, 240, 232, 0.82);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.advert-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.advert-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(212, 185, 150, 0.5);
+  background: rgba(212, 185, 150, 0.06);
+  color: var(--paper);
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.advert-links a:hover {
+  border-color: var(--gold);
+  background: rgba(212, 185, 150, 0.12);
+}
+
 .final-video-content {
   display: grid;
   flex: 1;
